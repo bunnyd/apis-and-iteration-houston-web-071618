@@ -1,0 +1,252 @@
+Last login: Tue Jul 17 17:49:01 on ttys000
+Flatirons-MacBook-Air-4:~ flatironschool$ cd documents
+Flatirons-MacBook-Air-4:documents flatironschool$ ls
+Day 2 GoogleBooks parsing JSON		apis-and-iteration-houston-web-071618
+Jeannie pics				deploy-on-day-1-houston-web-071618
+advanced-hashes-hashketball-prework	prework
+Flatirons-MacBook-Air-4:documents flatironschool$ cd apis-and-iteration-houston-web-071618/
+Flatirons-MacBook-Air-4:apis-and-iteration-houston-web-071618 flatironschool$ ruby bin/run.rb
+In a galaxy far, far away...
+please enter a character
+Luke Skywalker
+"luke skywalker"
+
+From: /Users/flatironschool/Documents/apis-and-iteration-houston-web-071618/lib/api_communicator.rb @ line 27 Object#get_character_movies_from_api:
+
+     5: def get_character_movies_from_api(character)
+     6:   #make the web request
+     7:   response_string = RestClient.get('http://www.swapi.co/api/people/')
+     8:   response_hash = JSON.parse(response_string)
+     9: 
+    10:   # iterate over the character hash to find the collection of `films` for the given
+    11:   #   `character`
+    12:   # collect those film API urls, make a web request to each URL to get the info
+    13:   #  for that film
+    14:   # return value of this method should be collection of info about each film.
+    15:   #  i.e. an array of hashes in which each hash reps a given film
+    16:   # this collection will be the argument given to `parse_character_movies`
+    17:   #  and that method will do some nice presentation stuff: puts out a list
+    18:   #  of movies by title. play around with puts out other info about a given film.
+    19: 
+[1] pry(main)> exit
+Flatirons-MacBook-Air-4:apis-and-iteration-houston-web-071618 flatironschool$ ruby bin/run.rb
+In a galaxy far, far away...
+please enter a character
+Luke Skywalker
+"luke skywalker"
+Flatirons-MacBook-Air-4:apis-and-iteration-houston-web-071618 flatironschool$ ruby bin/run.rb
+In a galaxy far, far away...
+please enter a character
+C-3PO
+"c-3po"
+Flatirons-MacBook-Air-4:apis-and-iteration-houston-web-071618 flatironschool$ ruby bin/run.rb
+In a galaxy far, far away...
+please enter a character
+Luke Skywalker
+"luke skywalker"
+Flatirons-MacBook-Air-4:apis-and-iteration-houston-web-071618 flatironschool$ ruby bin/run.rb
+In a galaxy far, far away...
+please enter a character
+Luke Skywalker
+"luke skywalker"
+Flatirons-MacBook-Air-4:apis-and-iteration-houston-web-071618 flatironschool$ ruby bin/run.rb
+In a galaxy far, far away...
+please enter a character
+Luke Skywalker
+"luke skywalker"
+Flatirons-MacBook-Air-4:apis-and-iteration-houston-web-071618 flatironschool$ ruby bin/run.rb
+In a galaxy far, far away...
+please enter a character
+Luke Skywalker
+"luke skywalker"
+Flatirons-MacBook-Air-4:apis-and-iteration-houston-web-071618 flatironschool$ ruby bin/run.rb
+In a galaxy far, far away...
+please enter a character
+Luke Skywalker
+"luke skywalker"
+Flatirons-MacBook-Air-4:apis-and-iteration-houston-web-071618 flatironschool$ ruby bin/run.rb
+In a galaxy far, far away...
+please enter a character
+Luke Skywalker
+"luke skywalker"
+
+From: /Users/flatironschool/Documents/apis-and-iteration-houston-web-071618/lib/api_communicator.rb @ line 28 Object#get_character_movies_from_api:
+
+    23: 
+    24:   results.each do |result|
+    25:       response_film_links = result["films"] if result.has_value?(character)
+    26:   end
+    27: 
+ => 28:   binding.pry
+    29:   
+    30:   return response_film_links
+    31: 
+    32: 
+    33: 
+
+[1] pry(main)> response_film_links
+=> []
+[2] pry(main)> response_film_links
+=> []
+[3] pry(main)> response_film_linksexit
+NameError: undefined local variable or method `response_film_linksexit' for main:Object
+Did you mean?  response_film_links
+from (pry):3:in `get_character_movies_from_api'
+[4] pry(main)> exit
+Flatirons-MacBook-Air-4:apis-and-iteration-houston-web-071618 flatironschool$ exit!
+-bash: exit!: command not found
+Flatirons-MacBook-Air-4:apis-and-iteration-houston-web-071618 flatironschool$ ruby bin/run.rb
+In a galaxy far, far away...
+please enter a character
+Luke Skywalker
+"luke skywalker"
+
+From: /Users/flatironschool/Documents/apis-and-iteration-houston-web-071618/lib/api_communicator.rb @ line 28 Object#get_character_movies_from_api:
+
+    23: 
+    24:   results.map do |result|
+    25:       response_film_links = result["films"] if result.has_value?(character)
+    26:   end
+    27: 
+ => 28:   binding.pry
+    29: 
+    30:   response_film_links
+    31: 
+    32: 
+    33: 
+
+[1] pry(main)> response_film_links
+=> []
+[2] pry(main)> results
+=> [{"name"=>"Luke Skywalker",
+  "height"=>"172",
+  "mass"=>"77",
+  "hair_color"=>"blond",
+  "skin_color"=>"fair",
+  "eye_color"=>"blue",
+  "birth_year"=>"19BBY",
+  "gender"=>"male",
+  "homeworld"=>"https://www.swapi.co/api/planets/1/",
+  "films"=>
+   ["https://www.swapi.co/api/films/2/",
+    "https://www.swapi.co/api/films/6/",
+    "https://www.swapi.co/api/films/3/",
+    "https://www.swapi.co/api/films/1/",
+    "https://www.swapi.co/api/films/7/"],
+  "species"=>["https://www.swapi.co/api/species/1/"],
+  "vehicles"=>
+   ["https://www.swapi.co/api/vehicles/14/",
+    "https://www.swapi.co/api/vehicles/30/"],
+  "starships"=>
+   ["https://www.swapi.co/api/starships/12/",
+    "https://www.swapi.co/api/starships/22/"],
+  "created"=>"2014-12-09T13:50:51.644000Z",
+  "edited"=>"2014-12-20T21:17:56.891000Z",
+  "url"=>"https://www.swapi.co/api/people/1/"},
+ {"name"=>"C-3PO",
+  "height"=>"167",
+  "mass"=>"75",
+  "hair_color"=>"n/a",
+  "skin_color"=>"gold",
+  "eye_color"=>"yellow",
+  "birth_year"=>"112BBY",
+  "gender"=>"n/a",
+  "homeworld"=>"https://www.swapi.co/api/planets/1/",
+  "films"=>
+   ["https://www.swapi.co/api/films/2/",
+    "https://www.swapi.co/api/films/5/",
+    "https://www.swapi.co/api/films/4/",
+[3] pry(main)> exit
+Flatirons-MacBook-Air-4:apis-and-iteration-houston-web-071618 flatironschool$ ruby bin/run.rb
+In a galaxy far, far away...
+please enter a character
+Luke Skywalker
+"luke skywalker"
+
+From: /Users/flatironschool/Documents/apis-and-iteration-houston-web-071618/lib/api_communicator.rb @ line 28 Object#get_character_movies_from_api:
+
+    23: 
+    24:   results.map do |result|
+    25:       response_film_links << result["films"] if result.has_value?(character)
+    26:   end
+    27: 
+ => 28:   binding.pry
+    29: 
+    30:   response_film_links
+    31: 
+    32: 
+    33: 
+
+[1] pry(main)> response_film_links
+=> []
+[2] pry(main)> response_film_links
+=> []
+[3] pry(main)> exit
+Flatirons-MacBook-Air-4:apis-and-iteration-houston-web-071618 flatironschool$ ruby bin/run.rb
+In a galaxy far, far away...
+please enter a character
+Luke Skywalker
+"luke skywalker"
+
+From: /Users/flatironschool/Documents/apis-and-iteration-houston-web-071618/lib/api_communicator.rb @ line 28 Object#get_character_movies_from_api:
+
+    23: 
+    24:   results.map do |result|
+    25:       response_film_links = results["films"] if result.has_value?(character)
+    26:   end
+    27: 
+ => 28:   binding.pry
+    29: 
+    30:   response_film_links
+    31: 
+    32: 
+    33: 
+
+[1] pry(main)> response_film_links
+=> []
+[2] pry(main)> exit!
+Flatirons-MacBook-Air-4:apis-and-iteration-houston-web-071618 flatironschool$ ruby bin/run.rb
+In a galaxy far, far away...
+please enter a character
+Luke Skywalker
+"luke skywalker"
+
+From: /Users/flatironschool/Documents/apis-and-iteration-houston-web-071618/lib/api_communicator.rb @ line 28 Object#get_character_movies_from_api:
+
+    23: 
+    24:   results.map do |result|
+    25:       response_film_links = results["films"] if result.has_value?(character)
+    26:   end
+    27: 
+ => 28:   binding.pry
+    29: 
+    30:   response_film_links
+    31: 
+    32: 
+    33: 
+
+[1] pry(main)> response_film_links
+=> []
+[2] pry(main)> exit!
+Flatirons-MacBook-Air-4:apis-and-iteration-houston-web-071618 flatironschool$ ruby bin/run.rb
+In a galaxy far, far away...
+please enter a character
+Luke Skywalker  
+
+From: /Users/flatironschool/Documents/apis-and-iteration-houston-web-071618/lib/api_communicator.rb @ line 28 Object#get_character_movies_from_api:
+
+    23: 
+    24:   results.map do |result|
+    25:       response_film_links = results["films"] if result.has_value?(character)
+    26:   end
+    27: 
+ => 28:   binding.pry
+    29: 
+    30:   response_film_links
+    31: 
+    32: 
+    33: 
+
+[1] pry(main)> response_film_links
+=> []
+[2] pry(main)> 
